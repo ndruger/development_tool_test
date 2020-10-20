@@ -7,6 +7,7 @@ yarn
 ```
 
 Install the following packages.
+
 - [shfmt](https://github.com/mvdan/sh)
 - [shellcheck](https://github.com/koalaman/shellcheck)
 
