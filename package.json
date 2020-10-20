@@ -25,7 +25,7 @@
   "scripts": {
     "format:doc": "prettier --write '**/*.md'",
     "lint:doc": "markdownlint '**/*.md'",
-    "format:sh": "find . -type d \\( -name node_modules -o -name '.git' \\) -prune -false -o -name '*.sh' -exec shfmt -w {} \\;",
+    "format:sh": "find . -type d \\( -name node_modules -o -name '.git' \\) -prune -false -o -name '*.sh' -exec shfmt -i 2 -w {} \\;",
     "lint:sh": "find . -type d \\( -name node_modules -o -name '.git' \\) -prune -false -o -name '*.sh' -exec shellcheck {} \\;",
     "check_license": "license-checker --production --summary --excludePackages 'development_tool_test@1.0.0' --onlyAllow 'MIT'",
     "format": "npm-run-all -s format:*",

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-name="test"
-echo "Hello ${name}"
+function hello() {
+    name="test"
+    echo "Hello ${name}"
+}
+
+hello
