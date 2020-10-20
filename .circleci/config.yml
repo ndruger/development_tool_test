@@ -9,8 +9,12 @@ jobs:
       - checkout
       - restore_cache:
           key: cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run: sudo apt-get update
       - run:
-          name: Install
+          name: Install packages
+          command: sudo apt-get install -y shellcheck
+      - run:
+          name: Install Npm packages
           command: yarn
       - save_cache:
           key: cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
