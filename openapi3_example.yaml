@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: This is OpenAPI example
+  version: 0.0.1
+servers:
+  - url: https://api.example.com/v1
+    description: Example Server
+tags:
+  - name: user
+    description: User API
+paths:
+  /users:
+    get:
+      operationId: retrieveUserList
+      summary: Returns a list of users.
+      tags:
+        - user
+      description: Returns a list of users.
+      responses:
+        '200':
+          description: A JSON array of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
