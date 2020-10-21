@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "husky": "^4.3.0",
+    "ibm-openapi-validator": "^0.31.0",
     "license-checker": "^25.0.1",
     "markdownlint": "^0.21.0",
     "markdownlint-cli": "^0.24.0",
