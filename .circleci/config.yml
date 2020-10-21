@@ -27,3 +27,6 @@ jobs:
       - run:
           name: License
           command: yarn check_license
+      - run:
+          name: Audit
+          command: yarn audit --level critical
