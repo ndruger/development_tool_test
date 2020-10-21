@@ -2,16 +2,13 @@
   "shared": {
     "operations": {
       "no_operation_id": "warning",
-      "operation_id_case_convention": [
-        "warning",
-        "lower_snake_case"
-      ],
+      "operation_id_case_convention": "off",
       "no_summary": "warning",
-      "no_array_responses": "error",
+      "no_array_responses": "off",
       "parameter_order": "warning",
       "undefined_tag": "warning",
       "unused_tag": "warning",
-      "operation_id_naming_convention": "warning"
+      "operation_id_naming_convention": "off"
     },
     "pagination": {
       "pagination_style": "warning"
@@ -38,7 +35,7 @@
       ]
     },
     "responses": {
-      "inline_response_schema": "warning"
+      "inline_response_schema": "off"
     },
     "security_definitions": {
       "unused_security_schemes": "warning",
