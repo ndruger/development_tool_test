@@ -20,3 +20,4 @@ Install the following packages.
 - [npm-run-all](https://github.com/mysticatea/npm-run-all)
 - [shfmt](https://github.com/mvdan/sh)
 - [shellcheck](https://github.com/koalaman/shellcheck)
+- [OpenAPI Validator](https://github.com/IBM/openapi-validator)
