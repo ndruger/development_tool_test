@@ -21,3 +21,4 @@ Install the following packages.
 - [shfmt](https://github.com/mvdan/sh)
 - [shellcheck](https://github.com/koalaman/shellcheck)
 - [OpenAPI Validator](https://github.com/IBM/openapi-validator)
+- [Secretlint](https://github.com/secretlint/secretlint)
