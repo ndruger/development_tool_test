@@ -18,14 +18,14 @@ paths:
         - user
       description: Returns a list of users.
       parameters:
-      - name: name
-        description: return users with given name
-        in: query
-        required: true
-        schema:
-          type: string
+        - name: name
+          description: return users with given name
+          in: query
+          required: true
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: A JSON array of users
           content:
             application/json:
@@ -50,7 +50,7 @@ paths:
                   description: name of user
                   type: string
       responses:
-        '200':
+        "200":
           description: created user
           content:
             application/json:

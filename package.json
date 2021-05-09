@@ -27,10 +27,14 @@
     }
   },
   "scripts": {
-    "format:doc": "prettier --write '**/*.md'",
-    "lint:doc": "markdownlint '**/*.md'",
+    "format:doc": "prettier --write '**/*.md' '**/*.yml' '**/*.yaml'",
+    "lint:doc:markdownlint": "markdownlint '**/*.md'",
+    "lint:doc:prettier": "prettier --check '**/*.md' '**/*.yml' '**/*.yaml'",
+    "lint:doc": "npm-run-all -s lint:doc:*",
     "format:sh": "shfmt -w `find . -type d \\( -name node_modules -o -name '.git' -o -name '.husky' \\) -prune -false -o -name '*.sh'`",
-    "lint:sh": "shellcheck `find . -type d \\( -name node_modules -o -name '.git' -o -name '.husky' \\) -prune -false -o -name '*.sh'`",
+    "lint:sh:shellcheck": "shellcheck `find . -type d \\( -name node_modules -o -name '.git' -o -name '.husky' \\) -prune -false -o -name '*.sh'`",
+    "lint:sh:shfmt": "shfmt -d `find . -type d \\( -name node_modules -o -name '.git' -o -name '.husky' \\) -prune -false -o -name '*.sh'`",
+    "lint:sh": "npm-run-all -s lint:sh:*",
     "lint:openapi": "lint-openapi openapi3_example.yaml",
     "check_license": "license-checker --production --summary --excludePackages 'development_tool_test@1.0.0' --onlyAllow 'MIT'",
     "format": "npm-run-all -s format:*",
