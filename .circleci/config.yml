@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       # https://hub.docker.com/r/circleci/node/tags
-      - image: circleci/node:latest
+      - image: circleci/golang:latest-node
     working_directory: ~/workspace
     steps:
       - checkout
