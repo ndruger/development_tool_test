@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       # https://hub.docker.com/r/circleci/node/tags
-      - image: circleci/node:10.22-browsers
+      - image: circleci/node:latest
     working_directory: ~/workspace
     steps:
       - checkout
