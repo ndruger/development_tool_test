@@ -17,6 +17,13 @@ paths:
       tags:
         - user
       description: Returns a list of users.
+      parameters:
+      - name: name
+        description: return users with given name
+        in: query
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: A JSON array of users
@@ -25,4 +32,37 @@ paths:
               schema:
                 type: array
                 items:
+                  $ref: "#/components/schemas/User"
+    post:
+      operationId: createUser
+      summary: Creates user.
+      tags:
+        - user
+      description: Creates user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: name of user
                   type: string
+      responses:
+        '200':
+          description: created user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+components:
+  schemas:
+    User:
+      type: object
+      description: user
+      properties:
+        name:
+          description: name of user
+          type: string
+          example: userA
