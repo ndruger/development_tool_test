@@ -32,4 +32,4 @@ jobs:
           command: yarn check_license
       - run:
           name: Audit
-          command: yarn audit --level critical
+          command: yarn audit

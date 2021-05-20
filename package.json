@@ -41,6 +41,7 @@
     "lint:secret": "secretlint '**/*'",
     "check_license": "license-checker --production --summary --excludePackages 'development_tool_test@1.0.0' --onlyAllow 'MIT'",
     "format": "npm-run-all -s format:*",
-    "lint": "npm-run-all -s lint:*"
+    "lint": "npm-run-all -s lint:*",
+    "audit_critical": "yarn audit; ([[ $? -ge 16 ]] && exit 1 || exit 0)"
   }
 }
