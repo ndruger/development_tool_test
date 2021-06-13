@@ -41,7 +41,7 @@
     "lint:sh": "npm-run-all -s lint:sh:*",
     "lint:openapi": "lint-openapi openapi3_example.yaml",
     "lint:secret": "secretlint '**/*'",
-    "check_license": "license-checker --production --summary --excludePackages 'development_tool_test@1.0.0' --onlyAllow 'MIT'",
+    "check_license": "license-checker --production --summary --excludePackages 'development_tool_test@1.0.0' --onlyAllow 'MIT;ISC'",
     "format": "npm-run-all -s format:*",
     "lint": "npm-run-all -s lint:*",
     "audit_critical": "yarn audit; ([[ $? -ge 16 ]] && exit 1 || exit 0)"
