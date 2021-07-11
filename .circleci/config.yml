@@ -17,6 +17,15 @@ jobs:
           name: Install golang packages
           command: GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
       - run:
+          name: Install conftest
+          command: |
+            mkdir -p conftest
+            cd conftest
+            wget https://github.com/open-policy-agent/conftest/releases/download/v0.24.0/conftest_0.24.0_Linux_x86_64.tar.gz
+            tar xzf conftest_0.24.0_Linux_x86_64.tar.gz
+            chmod 755 conftest
+            cd ..
+      - run:
           name: Install Npm packages
           command: yarn
       - save_cache:
@@ -24,6 +33,9 @@ jobs:
           paths:
             - ~/workspace/node_modules
             - ~/.cache/yarn/
+      - run:
+          name: conftest
+          command: conftest/conftest test package.json
       - run:
           name: Lint
           command: yarn lint
