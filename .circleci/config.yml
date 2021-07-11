@@ -35,7 +35,7 @@ jobs:
             - ~/.cache/yarn/
       - run:
           name: conftest
-          command: conftest test package.json
+          command: yarn conftest
       - run:
           name: Lint
           command: yarn lint
