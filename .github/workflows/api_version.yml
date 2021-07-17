@@ -17,6 +17,7 @@ jobs:
           echo ${{ github.ref }}
           API_FILE=openapi3_example.yaml
           git diff --name-only master ${{ github.sha }} | grep "${API_FILE}"
+          git reflog
           if [$? -eq 0]; then
             echo 'checking version'
             git diff master ${{ github.ref }} "${API_FILE}" | grep ' version: '
