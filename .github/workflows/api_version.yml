@@ -1,0 +1,19 @@
+name: API version
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Create Artifact Directory
+        run: |
+          echo ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
+          API_FILE=openapi3_example.yaml
+          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep "${API_FILE}"
+          if [$? -eq 0]; then
+            git diff ${{ github.event.pull_request.base.sha }} ${{ github.sha }} "${API_FILE}"
+          fi
