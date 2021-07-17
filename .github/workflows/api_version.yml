@@ -16,7 +16,9 @@ jobs:
           echo ${{ github.sha }}
           echo ${{ github.ref }}
           API_FILE=openapi3_example.yaml
+          set +e
           found=`git diff --name-only "origin/master..${{ github.sha }}" | grep -c "${API_FILE}"`
+          set -e
           if ["$found" != "0"]; then
             echo 'checking version'
             git diff "origin/master..${{ github.ref }}" "${API_FILE}" | grep ' version: '
