@@ -2,7 +2,8 @@ name: API version
 
 on:
   push:
-
+    branches-ignore:
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,6 +14,7 @@ jobs:
         run: |
           echo ${{ github.event.pull_request.base.sha }}
           echo ${{ github.sha }}
+          echo ${{ github.ref }}
           API_FILE=openapi3_example.yaml
           git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep "${API_FILE}"
           if [$? -eq 0]; then
