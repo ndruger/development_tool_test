@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Sample API
   description: This is OpenAPI example
-  version: 0.0.2
+  version: 0.0.1
 servers:
   - url: https://api.example.com/v1
     description: Example Server
