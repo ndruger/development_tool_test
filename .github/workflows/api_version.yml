@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Create Artifact Directory
+      - name: Check API document version
         run: |
           echo ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
           API_FILE=openapi3_example.yaml
