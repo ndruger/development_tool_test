@@ -1,0 +1,22 @@
+name: API version
+
+on:
+  push:
+    branches-ignore:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Check API document version
+        run: |
+          API_FILE=openapi3_example.yaml
+          set +e
+          found=`git diff --name-only "origin/master..${{ github.sha }}" | grep -c "${API_FILE}"`
+          set -e
+          if [ "$found" != "0" ]; then
+            echo 'checking version'
+            git diff --unified=0 "origin/master..${{ github.sha }}" "${API_FILE}" | grep ' version: '
+          fi

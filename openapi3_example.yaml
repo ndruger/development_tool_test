@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Sample API
   description: This is OpenAPI example
-  version: 0.0.1
+  version: 0.0.2
 servers:
   - url: https://api.example.com/v1
     description: Example Server
@@ -19,7 +19,7 @@ paths:
       description: Returns a list of users.
       parameters:
         - name: name
-          description: return users with given name
+          description: return users
           in: query
           required: true
           schema:
