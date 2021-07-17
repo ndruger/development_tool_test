@@ -22,6 +22,4 @@ jobs:
           if ["$found" != "0"]; then
             echo 'checking version'
             git diff "origin/master..${{ github.ref }}" "${API_FILE}" | grep ' version: '
-          else
-            exit 0
           fi
