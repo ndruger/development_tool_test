@@ -19,7 +19,7 @@ jobs:
           set +e
           found=`git diff --name-only "origin/master..${{ github.sha }}" | grep -c "${API_FILE}"`
           set -e
-          if ["$found" != "0"]; then
+          if [ "$found" != "0" ]; then
             echo 'checking version'
-            git diff "origin/master..${{ github.ref }}" "${API_FILE}" | grep ' version: '
+            git diff --unified=0 "origin/master..${{ github.ref }}" "${API_FILE}" | grep ' version: '
           fi

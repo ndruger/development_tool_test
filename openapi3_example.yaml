@@ -19,7 +19,7 @@ paths:
       description: Returns a list of users.
       parameters:
         - name: name
-          description: return users
+          description: return users with given name
           in: query
           required: true
           schema:
