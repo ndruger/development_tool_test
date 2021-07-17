@@ -12,9 +12,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Check API document version
         run: |
-          echo ${{ github.event.pull_request.base.sha }}
-          echo ${{ github.sha }}
-          echo ${{ github.ref }}
           API_FILE=openapi3_example.yaml
           set +e
           found=`git diff --name-only "origin/master..${{ github.sha }}" | grep -c "${API_FILE}"`
