@@ -1,5 +1,15 @@
 version: 2.1
 jobs:
+  sqlfluff:
+    docker:
+      - image: cimg/python:3.10.1
+    steps:
+      - checkout
+      - run:
+          name: Check SQL
+          command: |
+            pip install sqlfluff
+            sqlfluff test.sql
   build:
     docker:
       - image: circleci/golang:latest-node
@@ -44,13 +54,9 @@ jobs:
       - run:
           name: Audit
           command: yarn audit_critical
-      - run:
-          name: Check SQL
-          command: |
-            pip install sqlfluff
-            sqlfluff test.sql
 workflows:
   version: 2
   main:
     jobs:
       - build
+      - sqlfluff
