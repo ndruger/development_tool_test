@@ -1,7 +1,5 @@
 # Development Tool Test
 
-a
-
 ## Installing
 
 ```bash
@@ -24,3 +22,4 @@ Install the following packages.
 - [shellcheck](https://github.com/koalaman/shellcheck)
 - [OpenAPI Validator](https://github.com/IBM/openapi-validator)
 - [Secretlint](https://github.com/secretlint/secretlint)
+- [sqlfluff](https://github.com/sqlfluff/sqlfluff)
