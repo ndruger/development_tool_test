@@ -2,15 +2,21 @@ version: 2.1
 jobs:
   sqlfluff:
     docker:
-      - image: cimg/python:3.10.1
+      - image: circleci/python:3.10.1
     working_directory: ~/workspace
     steps:
       - checkout
+      - restore_cache:
+          key: cache-{{ .Branch }}
       - run:
           name: Check SQL
           command: |
             pip install sqlfluff
-            sqlfluff test.sql
+            sqlfluff lint test.sql
+      - save_cache:
+        key: pip_cache-{{ .Branch }}
+        paths:
+          - ~/.cache/pip
   build:
     docker:
       - image: circleci/golang:latest-node
