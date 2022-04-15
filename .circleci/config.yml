@@ -14,9 +14,9 @@ jobs:
             pip install sqlfluff
             sqlfluff lint test.sql
       - save_cache:
-        key: pip_cache-{{ .Branch }}
-        paths:
-          - ~/.cache/pip
+          key: pip_cache-{{ .Branch }}
+          paths:
+            - ~/.cache/pip
   build:
     docker:
       - image: circleci/golang:latest-node
