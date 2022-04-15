@@ -1,8 +1,16 @@
 version: 2.1
 jobs:
+  sqlfluff:
+    docker:
+      - image: sqlfluff/sqlfluff:latest
+    working_directory: ~/workspace
+    steps:
+      - checkout
+      - run:
+          name: Check SQL
+          command: sqlfluff lint test.sql
   build:
     docker:
-      # https://hub.docker.com/r/circleci/node/tags
       - image: circleci/golang:latest-node
     working_directory: ~/workspace
     steps:
