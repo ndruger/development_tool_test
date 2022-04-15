@@ -3,6 +3,7 @@ jobs:
   sqlfluff:
     docker:
       - image: cimg/python:3.10.1
+    working_directory: ~/workspace
     steps:
       - checkout
       - run:
