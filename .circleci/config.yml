@@ -1,8 +1,24 @@
 version: 2.1
 jobs:
+  sqlfluff:
+    docker:
+      - image: circleci/python:3.10.1
+    working_directory: ~/workspace
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-{{ .Branch }}
+      - run:
+          name: Check SQL
+          command: |
+            pip install sqlfluff
+            sqlfluff lint test.sql
+      - save_cache:
+          key: pip_cache-{{ .Branch }}
+          paths:
+            - ~/.cache/pip
   build:
     docker:
-      # https://hub.docker.com/r/circleci/node/tags
       - image: circleci/golang:latest-node
     working_directory: ~/workspace
     steps:
@@ -45,3 +61,9 @@ jobs:
       - run:
           name: Audit
           command: yarn audit_critical
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build
+      - sqlfluff
