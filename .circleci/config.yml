@@ -9,3 +9,53 @@ jobs:
       - run:
           name: Check SQL
           command: sqlfluff lint test.sql
+  build:
+    docker:
+      - image: circleci/golang:latest-node
+    working_directory: ~/workspace
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run: sudo apt-get update
+      - run:
+          name: Install packages
+          command: sudo apt-get install -y shellcheck
+      - run:
+          name: Install golang packages
+          command: GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
+      - run:
+          name: Install conftest
+          command: |
+            mkdir -p /tmp/conftest
+            cd /tmp/conftest
+            wget https://github.com/open-policy-agent/conftest/releases/download/v0.24.0/conftest_0.24.0_Linux_x86_64.tar.gz
+            tar xzf conftest_0.24.0_Linux_x86_64.tar.gz
+            chmod 755 conftest
+            sudo mv conftest /usr/local/bin/
+      - run:
+          name: Install Npm packages
+          command: yarn
+      - save_cache:
+          key: cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/workspace/node_modules
+            - ~/.cache/yarn/
+      - run:
+          name: conftest
+          command: yarn conftest
+      - run:
+          name: Lint
+          command: yarn lint
+      - run:
+          name: License
+          command: yarn check_license
+      - run:
+          name: Audit
+          command: yarn audit_critical
+workflows:
+  version: 2
+  main:
+    jobs:
+      - sqlfluff
+      - build
