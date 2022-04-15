@@ -1,2 +1,6 @@
 [sqlfluff]
 dialect = bigquery
+[sqlfluff:rules]
+tab_space_size = 2
+[sqlfluff:rules:L010]
+capitalisation_policy = lower
