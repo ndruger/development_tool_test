@@ -40,7 +40,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@ibm-cloud/openapi-ruleset@0.30.0":
+"@ibm-cloud/openapi-ruleset@0.30.0", "@ibm-cloud/openapi-ruleset@^0.30.0":
   version "0.30.0"
   resolved "https://registry.yarnpkg.com/@ibm-cloud/openapi-ruleset/-/openapi-ruleset-0.30.0.tgz#aaae18d9e351456df09f9084f1cf2763c0395d1c"
   integrity sha512-rV+se+ja8wvn3piOjP1Ly5vAuvvZuNnlUu4+FlmQwLI/4wRgO1PpScoRUp9GFphtn6r8ZXa31TNDVp7fnLGbYg==

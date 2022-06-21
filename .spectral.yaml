@@ -1,0 +1,8 @@
+extends: "@ibm-cloud/openapi-ruleset"
+rules:
+  operation-id-case-convention: off
+  array-responses: off
+  prohibit-summary-sentence-style: off
+  string-boundary: off
+  response-example-provided: off
+  schema-description: off
