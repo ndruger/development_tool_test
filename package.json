@@ -49,7 +49,7 @@
     "check_license": "license-checker --production --summary --excludePackages 'development_tool_test@1.0.0' --onlyAllow 'MIT;ISC'",
     "format": "npm-run-all -s format:*",
     "lint": "npm-run-all -s lint:*",
-    "audit_critical": "yarn audit; ([ $? -le 16 ] && exit 1 || exit 0)",
+    "audit_critical": "yarn audit; ([ $? -ge 16 ] && exit 1 || exit 0)",
     "conftest": "conftest test package.json"
   }
 }
