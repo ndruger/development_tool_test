@@ -6,20 +6,21 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "glob-parent": "^5.1.2",
-    "react": "^17.0.2"
+    "glob-parent": "^6.0.2",
+    "react": "^18.2.0"
   },
   "devDependencies": {
-    "@secretlint/secretlint-rule-preset-recommend": "^3.0.0",
-    "husky": "^6.0.0",
-    "ibm-openapi-validator": "^0.46.0",
+    "@ibm-cloud/openapi-ruleset": "^0.30.0",
+    "@secretlint/secretlint-rule-preset-recommend": "^5.2.0",
+    "husky": "^8.0.1",
+    "ibm-openapi-validator": "^0.81.0",
     "license-checker": "^25.0.1",
-    "lint-staged": "^11.0.0",
-    "markdownlint": "^0.23.1",
-    "markdownlint-cli": "^0.27.1",
+    "lint-staged": "^13.0.2",
+    "markdownlint": "^0.25.1",
+    "markdownlint-cli": "^0.31.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.1",
-    "secretlint": "^3.0.0"
+    "secretlint": "^5.2.0"
   },
   "resolutions": {
     "lodash": "^4.17.21",
@@ -43,12 +44,12 @@
     "lint:sh:shellcheck": "shellcheck `find . -type d \\( -name node_modules -o -name '.git' -o -name '.husky' \\) -prune -false -o -name '*.sh'`",
     "lint:sh:shfmt": "shfmt -d `find . -type d \\( -name node_modules -o -name '.git' -o -name '.husky' \\) -prune -false -o -name '*.sh'`",
     "lint:sh": "npm-run-all -s lint:sh:*",
-    "lint:openapi": "lint-openapi openapi3_example.yaml",
+    "lint:openapi": "lint-openapi -v openapi3_example.yaml",
     "lint:secret": "secretlint '**/*'",
     "check_license": "license-checker --production --summary --excludePackages 'development_tool_test@1.0.0' --onlyAllow 'MIT;ISC'",
     "format": "npm-run-all -s format:*",
     "lint": "npm-run-all -s lint:*",
-    "audit_critical": "yarn audit; ([ $? -le 16 ] && exit 1 || exit 0)",
+    "audit_critical": "yarn audit; ([ $? -ge 16 ] && exit 1 || exit 0)",
     "conftest": "conftest test package.json"
   }
 }
