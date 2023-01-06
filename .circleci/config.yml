@@ -19,7 +19,7 @@ jobs:
             - ~/.cache/pip
   build:
     docker:
-      - image: cimg/go:latest-node
+      - image: cimg/go:1.19
     working_directory: ~/workspace
     steps:
       - checkout
