@@ -31,7 +31,7 @@ jobs:
           command: sudo apt-get install -y shellcheck
       - run:
           name: Install golang packages
-          command: GO111MODULE=on go install mvdan.cc/sh/v3/cmd/shfmt
+          command: GO111MODULE=on go install mvdan.cc/sh/v3/cmd/shfmt@latest
       - run:
           name: Install conftest
           command: |
