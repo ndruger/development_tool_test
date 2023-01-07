@@ -1,0 +1,21 @@
+name: main
+
+on:
+  push:
+  schedule:
+    - cron: "0 1 * * *"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: node:18-slim
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: yarn
+      - name: Lint
+        run: yarn lint
+      - name: Check license
+        run: yarn check_license
+      - name: Audit
+        run: yarn audit_critical
