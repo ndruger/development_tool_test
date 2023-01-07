@@ -1,0 +1,31 @@
+name: main
+
+on:
+  push:
+  schedule:
+    - cron: "0 1 * * *"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install packages
+        run: sudo apt-get install -y shellcheck
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - name: Set up Go
+        uses: actions/setup-go@v3
+      - name: Install golang packages
+        run: |
+          GO111MODULE=on go install mvdan.cc/sh/v3/cmd/shfmt@latest
+          echo `go env GOPATH`/bin >> $GITHUB_PATH
+      - name: Install npm dependencies
+        run: yarn
+      - name: Lint
+        run: yarn lint
+      - name: Check license
+        run: yarn check_license
+      - name: Audit
+        run: yarn audit_critical
