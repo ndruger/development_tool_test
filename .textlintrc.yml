@@ -1,0 +1,4 @@
+rules:
+  textlint-rule-ja-space-between-half-and-full-width:
+    space: always
+  textlint-rule-preset-ja-technical-writing: true
