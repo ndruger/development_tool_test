@@ -7,8 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: node:18-slim
     steps:
       - uses: actions/checkout@v1
       - name: Install packages
@@ -17,7 +15,7 @@ jobs:
         uses: actions/setup-go@v3
       - name: Install golang packages
         run: GO111MODULE=on go install mvdan.cc/sh/v3/cmd/shfmt@latest
-      - name: Install dependencies
+      - name: Install npm dependencies
         run: yarn
       - name: Lint
         run: yarn lint
