@@ -11,6 +11,12 @@ jobs:
       image: node:18-slim
     steps:
       - uses: actions/checkout@v1
+      - name: Install packages
+        run: sudo apt-get install -y shellcheck
+      - name: Set up Go
+        uses: actions/setup-go@v3
+      - name: Install golang packages
+        run: GO111MODULE=on go install mvdan.cc/sh/v3/cmd/shfmt@latest
       - name: Install dependencies
         run: yarn
       - name: Lint
