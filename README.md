@@ -16,10 +16,12 @@ Install the following packages。
 ### Lint / Formatter
 
 - [prettier](https://github.com/prettier/prettier)
+
   - Used to format Markdown and YAML. The table shaping of Markdown is useful.
   - Plugins
     - [prettier-plugin-md-nocjsp](https://github.com/tats-u/prettier-plugin-md-nocjsp)
       - Used to prevent Prettier from inserting spaces between Japanese and alphabets or numbers.
+
 - [textlint](https://github.com/textlint/textlint)
   - Plugins
     - [textlint-rule-ja-space-between-half-and-full-width](https://github.com/textlint-ja/textlint-rule-preset-ja-spacing/tree/master/packages/textlint-rule-ja-space-between-half-and-full-width)
