@@ -1,6 +1,6 @@
 # Development Tool Test
 
-## Installing
+## Install
 
 ```bash
 yarn
@@ -11,7 +11,7 @@ Install the following packages。
 - [shfmt](https://github.com/mvdan/sh)
 - [shellcheck](https://github.com/koalaman/shellcheck)
 
-## Used Tools
+## Tools
 
 ### Lint / Formatter
 
@@ -25,7 +25,7 @@ Install the following packages。
 - [textlint](https://github.com/textlint/textlint)
   - Plugins
     - [textlint-rule-ja-space-between-half-and-full-width](https://github.com/textlint-ja/textlint-rule-preset-ja-spacing/tree/master/packages/textlint-rule-ja-space-between-half-and-full-width)
-      - Used to insert spaces between Japanese and alphabets or numbers. It is customizable than prettier.
+      - Used to insert spaces between Japanese and alphabets or numbers. It is more customizable than prettier.
 - [markdownlint](https://github.com/DavidAnson/markdownlint)
 - [shfmt](https://github.com/mvdan/sh)
 - [shellcheck](https://github.com/koalaman/shellcheck)
@@ -33,11 +33,11 @@ Install the following packages。
 - [Secretlint](https://github.com/secretlint/secretlint)
 - [sqlfluff](https://github.com/sqlfluff/sqlfluff)
 
-### Other Checkers
+### Other checker
 
 - [NPM License Checker](https://github.com/davglass/license-checker)
 
-### Others
+### Other
 
 - [npm-run-all](https://github.com/mysticatea/npm-run-all)
 - [husky](https://github.com/typicode/husky)
