@@ -31,7 +31,12 @@
     "glob-parent": "^5.1.2"
   },
   "lint-staged": {
-    "*.{md,yml,yaml}": [
+    "*.md": [
+      "prettier --write",
+      "markdownlint-cli2-fix",
+      "textlint --fix"
+    ],
+    "*.{yml,yaml}": [
       "prettier --write"
     ],
     "*.sh": [
