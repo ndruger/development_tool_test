@@ -19,8 +19,6 @@ Install the following packages。
 
   - Used to format Markdown and YAML. The table shaping of Markdown is useful.
   - Plugins
-    - [prettier-plugin-md-nocjsp](https://github.com/tats-u/prettier-plugin-md-nocjsp)
-      - Used to prevent Prettier from inserting spaces between Japanese and alphabets or numbers.
 
 - [textlint](https://github.com/textlint/textlint)
   - Plugins
